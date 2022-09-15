@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'payment.wsgi.application'
 DATABASES = {
     'default': env.dj_db_url(
         'DATABASE_URL',
-        env.str('DATABASE_URL', 'postgres://user:password@127.0.0.1:5432/payment'),
+        env.str('DATABASE_URL', 'postgres://user:password@postgres:5432/payment'),
     )
 }
 
