@@ -125,3 +125,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
+STRIPE_PUBLISHABLE_KEY = env.str('STRIPE_PUBLISHABLE_KEY')
+STRIPE_SECRET_KEY = env.str('STRIPE_SECRET_KEY')

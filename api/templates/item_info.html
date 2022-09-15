@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <h1 class="m-3">Информация о товаре</h1>
+  </head>
+  <body>
+    <div class="row justify-content-center">
+        <table border="1" width="600">
+          <thead>
+            <tr>
+              <th scope="col">Название товара</th>
+              <th scope="col">Описание товара</th>
+              <th scope="col">Стоимость</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ item.name }}</td>
+              <td>{{ item.description }}</td>
+              <td>{{ item.price }}</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    </br>
+    <button id="buy-button">Buy</button>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script type="text/javascript">
+      var stripe = Stripe('{{ stipe_publishable_key }}');
+      var buyButton = document.getElementById('buy-button');
+      buyButton.addEventListener('click', function() {
+        fetch('/buy/{{ item.id }}', {method: 'GET'})
+        .then(response => response.json())
+        .then(session_id => stripe.redirectToCheckout({ sessionId: session_id }))
+        });
+    </script>
+  </body>
+</html>
