@@ -26,3 +26,18 @@ class Item(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Order(models.Model):
+
+    item = models.ManyToManyField(Item,
+                                  verbose_name='Товары в заказе',
+                                  related_name='orders',
+                                  )
+
+    class Meta:
+        verbose_name = 'Заказ'
+        verbose_name_plural = 'Заказы'
+
+    def __str__(self):
+        return f'Заказ № {self.id}'
