@@ -1,6 +1,6 @@
 <html>
   <head>
-    <h1 class="m-3">Информация о товаре</h1>
+    <h1 class="m-3">{{ order }}</h1>
   </head>
   <body>
     <div class="row justify-content-center">
@@ -13,10 +13,17 @@
             </tr>
           </thead>
           <tbody>
+            {% for item in items %}
+              <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.description }}</td>
+                <td>{{ item.price }}</td>
+              </tr>
+            {% endfor %}
             <tr>
-              <td>{{ item.name }}</td>
-              <td>{{ item.description }}</td>
-              <td>{{ item.price }}</td>
+              <td></td>
+              <td>Итого</td>
+              <td>{{ total_price }}</td>
             </tr>
           </tbody>
         </table>
@@ -28,7 +35,7 @@
       var stripe = Stripe('{{ stipe_publishable_key }}');
       var buyButton = document.getElementById('buy-button');
       buyButton.addEventListener('click', function() {
-        fetch('/buy_item/{{ item.id }}', {method: 'GET'})
+        fetch('/buy_order/{{ order.id }}', {method: 'GET'})
         .then(response => response.json())
         .then(session => stripe.redirectToCheckout({ sessionId: session.session_id }))
         });
