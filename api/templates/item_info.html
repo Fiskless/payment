@@ -30,7 +30,7 @@
       buyButton.addEventListener('click', function() {
         fetch('/buy/{{ item.id }}', {method: 'GET'})
         .then(response => response.json())
-        .then(session_id => stripe.redirectToCheckout({ sessionId: session_id }))
+        .then(session => stripe.redirectToCheckout({ sessionId: session.session_id }))
         });
     </script>
   </body>

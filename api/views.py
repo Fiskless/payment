@@ -49,7 +49,7 @@ def create_session(request, id):
         cancel_url=request.build_absolute_uri('cancelled/')
     )
 
-    return Response(session.id)
+    return Response({"session_id": session.id})
 
 
 class CancelledView(TemplateView):
