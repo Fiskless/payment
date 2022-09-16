@@ -28,7 +28,7 @@
       var stripe = Stripe('{{ stipe_publishable_key }}');
       var buyButton = document.getElementById('buy-button');
       buyButton.addEventListener('click', function() {
-        fetch('/buy_item/{{ item.id }}', {method: 'GET'})
+        fetch('/api/buy_item/{{ item.id }}', {method: 'GET'})
         .then(response => response.json())
         .then(session => stripe.redirectToCheckout({ sessionId: session.session_id }))
         });

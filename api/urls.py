@@ -1,4 +1,6 @@
-from django.urls import path, include
+from django.urls import path
+from drf_spectacular.views import SpectacularSwaggerView, SpectacularAPIView
+
 
 from .views import ItemDetail, \
     create_session_for_item, \
@@ -22,4 +24,6 @@ urlpatterns = [
          name='cancelled_payment_order'),
     path('item/<int:id>/', ItemDetail.as_view(), name='get_item_info'),
     path('order/<int:id>/', OrderDetail.as_view(), name='get_order_info'),
+    path("docs/", SpectacularSwaggerView.as_view(url_name="schema")),
+    path("schema/", SpectacularAPIView.as_view(), name="schema"),
 ]

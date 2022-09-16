@@ -1,6 +1,6 @@
 <html>
   <head>
-    <h1 class="m-3">{{ order }}</h1>
+    <h1 class="m-3">Информация о заказе № {{ order.id }}</h1>
   </head>
   <body>
     <div class="row justify-content-center">
@@ -35,7 +35,7 @@
       var stripe = Stripe('{{ stipe_publishable_key }}');
       var buyButton = document.getElementById('buy-button');
       buyButton.addEventListener('click', function() {
-        fetch('/buy_order/{{ order.id }}', {method: 'GET'})
+        fetch('/api/buy_order/{{ order.id }}', {method: 'GET'})
         .then(response => response.json())
         .then(session => stripe.redirectToCheckout({ sessionId: session.session_id }))
         });
