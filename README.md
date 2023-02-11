@@ -83,6 +83,10 @@ docker-compose run django ./manage.py createsuperuser
 
 В результате запроса выдается `session.id`, который далее используется для оплаты заказа
 
+Для просмотра запросов API перейдите по [ссылке](http://0.0.0.0:8000/api/docs/)
+
+Для просмотра спецификации по API перейдите по [ссылке](http://0.0.0.0:8000/api/schema/)
+
 
 ## Технологии
 django, djangorestframework, docker, docker-compose
