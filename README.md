@@ -6,16 +6,6 @@ Stripe - платёжная система с подробным API и бесп
 сервер с одной html страничкой, который общается со Stripe и создает платёжные
 формы для товаров. 
 
-## Демо-версия сайта
-Демо-версия сайта расположена на бесплатном хостинге [heroku.com](https://id.heroku.com/login)
-
-- [Адрес демо-версии](https://fsk-payment.herokuapp.com/)
-- [Админка демо-версии](https://fsk-payment.herokuapp.com/admin/)
-  - login: `user`
-  - пароль: `password`
-  - [Документация Openapi](https://fsk-payment.herokuapp.com/api/docs/)
-
-
 ## Как запустить сайт
 
 Проект докеризирован. Для запуска сайта воспользуйтесь командой:
